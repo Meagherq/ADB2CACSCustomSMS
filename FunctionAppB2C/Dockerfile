@@ -7,15 +7,15 @@ EXPOSE 80
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["FunctionAppIUB2C/FunctionAppIUB2C.csproj", "FunctionAppIUB2C/"]
-RUN dotnet restore "./FunctionAppIUB2C/./FunctionAppIUB2C.csproj"
+COPY ["FunctionAppB2C/FunctionAppB2C.csproj", "FunctionAppB2C/"]
+RUN dotnet restore "./FunctionAppB2C/./FunctionAppB2C.csproj"
 COPY . .
-WORKDIR "/src/FunctionAppIUB2C"
-RUN dotnet build "./FunctionAppIUB2C.csproj" -c $BUILD_CONFIGURATION -o /app/build
+WORKDIR "/src/FunctionAppB2C"
+RUN dotnet build "./FunctionAppB2C.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./FunctionAppIUB2C.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "./FunctionAppB2C.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /home/site/wwwroot

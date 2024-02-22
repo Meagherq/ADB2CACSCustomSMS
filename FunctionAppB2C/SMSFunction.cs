@@ -10,7 +10,7 @@ using Newtonsoft.Json;
 using System.Net.Mail;
 using Azure.Communication.Sms;
 
-namespace FunctionAppIUB2C
+namespace FunctionAppB2C
 {
     public static class SMSFunction
     {
