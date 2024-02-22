@@ -1,0 +1,14 @@
+{
+  "profiles": {
+    "FunctionAppIUB2C": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7231"
+    },
+    "Docker": {
+      "commandName": "Docker",
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}",
+      "httpPort": 34575,
+      "useSSL": false
+    }
+  }
+}
